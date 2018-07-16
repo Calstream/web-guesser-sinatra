@@ -1,8 +1,21 @@
 <html>
   <head></head>
   <body>
+
     <p>
-      The secret number is <%= number %>
+      <% if msg == "Correct" %>
+      <%= "The secret number is #{number} "%>
+      <% end %>
     </p>
+
+    <form>
+      <input type='text' name='guess' />
+      <input type='submit' value='Guess!' />
+    </form>
+
+    <p>
+      <%= msg %>
+    </p>
+
   </body>
 </html>
