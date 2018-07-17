@@ -4,12 +4,12 @@
 
     <p>
       <% if msg == "Correct" %>
-      <%= "The secret number is #{number} "%>
+        <%= "The secret number is #{number} "%>
       <% end %>
     </p>
 
     <form>
-      <input type='text' name='guess' />
+      <input type='text' name='guess' value=""/>
       <input type='submit' value='Guess!' />
     </form>
 
