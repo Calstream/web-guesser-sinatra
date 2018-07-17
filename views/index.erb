@@ -1,21 +1,17 @@
 <html>
   <head></head>
   <body>
-
     <p>
       <% if msg == "Correct" %>
         <%= "The secret number is #{number} "%>
       <% end %>
     </p>
-
     <form>
       <input type='text' name='guess' value=""/>
       <input type='submit' value='Guess!' />
     </form>
-
     <p>
       <%= msg %>
     </p>
-
   </body>
 </html>

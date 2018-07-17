@@ -4,10 +4,6 @@ require 'sinatra/reloader'
 number = rand(101)
 
 def compare_guess(_guess, number)
-  if (_guess == "")
-    msg = ""
-    return msg
-  end
   guess = _guess.to_i
   msg = ""
   if guess > number
