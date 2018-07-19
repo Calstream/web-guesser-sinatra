@@ -24,7 +24,7 @@ def compare_guess(_guess, number)
   end
   guess = _guess.to_i
   Attempts.dec
-  if Attempts.remaining < 0
+  if Attempts.remaining <= 0
     return "You lost, lets start over"
   end
   if guess > number
