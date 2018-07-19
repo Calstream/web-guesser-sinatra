@@ -19,8 +19,8 @@ class Attempts
 end
 
 def compare_guess(_guess, number)
-  if _guess.to_s.empty?
-    return "Pick a number between 0 and 100"
+  if _guess.to_s.empty? or !/\A\d+\z/.match(_guess)
+    return "Guess a number between 0 and 100"
   end
   guess = _guess.to_i
   Attempts.dec
@@ -44,11 +44,11 @@ end
 
 def get_bg_color(msg)
   case msg
-    when "Pick a number between 0 and 100" then color = "ffffff"
-    when "Correct, lets start over" then color = "aaffaa"
-    when "Too low", "Too high" then color = "ffaaaa"
-    when "Way too low", "Way too high" then color = "ff8888"
-    when "You lost, lets start over" then color = "333333"
+  when "Guess a number between 0 and 100" then color = "ffffff"
+    when "Correct, lets start over" then color = "22ff22"
+    when "Too low", "Too high" then color = "ff3333"
+    when "Way too low", "Way too high" then color = "aa0000"
+    when "You lost, lets start over" then color = "000000"
   end
   return color
 end
@@ -60,5 +60,5 @@ get '/' do
     Attempts.reset
   end
 
-  erb :index, :locals => {:msg => msg, :color => get_bg_color(msg)}
+  erb :index, :locals => {:msg => msg, :color => get_bg_color(msg), :att => Attempts.remaining}
 end
